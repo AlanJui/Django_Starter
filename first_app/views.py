@@ -44,7 +44,7 @@ def my_form(request):
         form = MyForm()
 
     return render(request, 'first_app/my_form.html', {
-        'title': 'My Form',
+        'title': 'Register Form',
         'form': form,
     })
 
