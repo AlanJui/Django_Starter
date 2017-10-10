@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 {% extends 'first_app/_base.html' %}
+{% load my_filters %}
 {% block body_block %}
   <div class="container">
     <h1>{{ title }}</h1>
+    <h2>Filter Practice</h2>
+    <p>{{ text | upper }}</p>
+    <p>{{ number | add:'99' }}</p>
+    <p>{{ text | cut:'hello' }}</p>
   </div>
 {% endblock %}
