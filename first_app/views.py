@@ -16,6 +16,12 @@ def index(request):
     }
     return render(request, 'first_app/index.html', context=date_dict)
 
+def others(request):
+    return render(request, 'first_app/others.html')
+
+def relative(request):
+    return render(request, 'first_app/relative_url_template.html')
+
 def new_user(request):
     if request.method == 'POST':
         form = NewUserForm(request.POST)
