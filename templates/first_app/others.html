@@ -1,10 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Others</title>
-</head>
-<body>
-  <h1>Others Page</h1>
-</body>
-</html>
+{% extends 'first_app/_base.html' %}
+{% block body_block %}
+  <div class="container">
+    <h1>{{ title }}</h1>
+  </div>
+{% endblock %}

@@ -1,15 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>{{ title }}</title>
-</head>
-<body>
+{% extends 'first_app/_base.html' %}
+{% block body_block %}
   <div class="container">
     <h1>{{ title }}</h1>
     <h2>Please sign up here!</h2>
   </div>
-
-
-</body>
-</html>
+{% endblock %}

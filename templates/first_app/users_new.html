@@ -1,14 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>{{ title }}</title>
-  <link rel="stylesheet"
-        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
-        integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
-        crossorigin="anonymous">
-</head>
-<body>
+{% extends 'first_app/_base.html' %}
+{% block body_block %}
   <div class="container">
     <h1>{{ title }}</h1>
     <h2>Please sign up here!</h2>
@@ -18,5 +10,5 @@
       <input type="submit" class="btn btn-primary" value="Submit">
     </form>
   </div>
-</body>
-</html>
+</div>
+{% endblock %}
