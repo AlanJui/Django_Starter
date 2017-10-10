@@ -5,22 +5,11 @@
   <title>{{ title }}</title>
 </head>
 <body>
-  <h1>{{ title }}</h1>
-  <h2>Users for First App</h2>
-  {% if list %}
-    <ol>
-      {% for item in list %}
-        <li>User Info</li>
-        <ul>
-          <li>First Name: {{ item.first_name }}</li>
-          <li>Last Name: {{ item.last_name }}</li>
-          <li>Email: {{ item.email }}</li>
-        </ul>
-      {% endfor %}
-    </ol>
-  {% else %}
-    <p>No records found!!</p>
-  {% endif %}
+  <div class="container">
+    <h1>{{ title }}</h1>
+    <h2>Please sign up here!</h2>
+  </div>
+
 
 </body>
 </html>

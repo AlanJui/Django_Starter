@@ -4,6 +4,7 @@ from first_app.models import Topic,Webpage,AccessRecord
 from first_app.models import User
 # from . import forms
 from .forms import ContactForm, MyForm
+from .forms import NewUserForm
 
 # Create your views here.
 
@@ -15,13 +16,39 @@ def index(request):
     }
     return render(request, 'first_app/index.html', context=date_dict)
 
-def users(request):
-    user_list = User.objects.order_by('first_name')
-    myDict = {
+def new_user(request):
+    if request.method == 'POST':
+        form = NewUserForm(request.POST)
+        if form.is_valid():
+            form.save(commit=True)
+            return users_list(request)
+        else:
+            print('Form data is invalid!')
+    else:
+        form = NewUserForm()
+    return render(request, 'first_app/users_new.html', {
+        'title': 'New User',
+        'form': form
+    })
+
+# def users(request):
+#     user_list = User.objects.order_by('first_name')
+#     myDict = {
+#         'title': 'Sign Up',
+#         'list': user_list
+#     }
+#     return render(request, 'first_app/users.html', context=myDict)
+
+def users_list(request):
+    # user_list = User.objects.order_by('first_name')
+    # myDict = {
+    #     'title': 'Users List',
+    #     'list': user_list
+    # }
+    return render(request, 'first_app/users_list.html', {
         'title': 'Users List',
-        'list': user_list
-    }
-    return render(request, 'first_app/users.html', context=myDict)
+        'list': User.objects.order_by('first_name')
+    })
 
 def contact(request):
     if request.method == 'POST':
