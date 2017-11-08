@@ -12,5 +12,6 @@ urlpatterns = [
     url(r'^my_form$', views.my_form, name='my_form'),
     url(r'^contact$', views.contact, name='contact'),
     url(r'^relative$', views.relative, name='relative'),
-    url(r'^others$', views.others, name='others')
+    url(r'^others$', views.others, name='others'),
+    url(r'^register/$', views.register, name='register')
 ]
