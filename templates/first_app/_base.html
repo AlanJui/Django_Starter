@@ -42,9 +42,29 @@
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
+          <a class="nav-link" href="{% url 'admin:index' %}">
+            Admin
+          </a>
         </li>
-        <li><a class="nav-link" href="{% url 'first_app:register' %}">Register</a></li>
+        <li>
+          <a class="nav-link" href="{% url 'first_app:register' %}">
+            Register
+          </a>
+        </li>
+
+        {% if user.is_authenticated %}
+          <li>
+            <a href="{% url 'logout' %}" class="nav-link">
+              Logout
+            </a>
+          </li>
+        {% else %}
+          <li>
+            <a href="{% url 'first_app:user_login' %}" class="nav-link">
+              Login
+            </a>
+          </li>
+        {% endif %}
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="text" placeholder="Search">

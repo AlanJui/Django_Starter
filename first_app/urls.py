@@ -13,5 +13,6 @@ urlpatterns = [
     url(r'^contact$', views.contact, name='contact'),
     url(r'^relative$', views.relative, name='relative'),
     url(r'^others$', views.others, name='others'),
-    url(r'^register/$', views.register, name='register')
+    url(r'^register/$', views.register, name='register'),
+    url(r'^user_login/$', views.user_login, name='user_login')
 ]
