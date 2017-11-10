@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic import View, TemplateView, ListView, DetailView
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
 from django.contrib.auth.decorators import login_required
@@ -10,8 +11,32 @@ from first_app.models import User
 from .forms import ContactForm, MyForm
 from .forms import NewUserForm
 from .forms import UserForm, UserProfileInfoForm
+from . import models
 
 # Create your views here.
+
+class IndexView(TemplateView):
+    template_name = 'first_app/index.html'
+
+class SchoolListView(ListView):
+    context_object_name = 'schools'
+    model = models.School
+
+class SchoolDetailView(DetailView):
+    context_object_name = 'school_detail'
+    model = models.School
+    template_name = 'first_app/school_detail.html'
+
+
+class CBView(TemplateView):
+    template_name = 'first_app/cbv.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['inject_me'] = 'BASIC INJECTION!'
+        return context
+
+# ====================================================
 
 def index(request):
     webpages_list = AccessRecord.objects.order_by('date')
@@ -169,3 +194,4 @@ def user_login(request):
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect(reverse('index'))
+
